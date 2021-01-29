@@ -7,7 +7,7 @@ import PlayerTwo from './PlayerTwo';
 const PlayerInfoScreen = ({ navigation }) => {
   const handlePick = player => {
     navigation.navigate('EnterPlayerInfoScreen', player);
-  }
+  };
 
   return (
     <View style={styles.container}>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import RockButton from './RockButton';
+import { StyleSheet, Text, View } from 'react-native';
 import PaperButton from './PaperButton';
+import RockButton from './RockButton';
 import ScissorButton from './ScissorButton';
 
 const RPSGame = ({ navigation }) => {
