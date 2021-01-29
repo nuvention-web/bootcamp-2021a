@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
         margin: 30,
     },
     gameLogo: {
-        width: 100,
-        height: 100,
+        width: 110,
+        height: 110,
     },
 });
 
