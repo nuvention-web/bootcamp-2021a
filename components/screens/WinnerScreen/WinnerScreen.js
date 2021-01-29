@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
 
-const WinnerScreen = () => {
+const WinnerScreen = ({ winnerName }) => {
     return (
         <View style={styles.container}>
             <Image

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const RockButton = ({ handlepick }) => (
+const RockButton = ({ handlePick }) => (
   <TouchableOpacity
       style={styles.button}
-      onPress={() => handlePicked()}
+      onPress={() => handlePick('rock')}
   >
       <Image
           style={styles.buttonstyle}

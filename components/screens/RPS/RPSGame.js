@@ -1,19 +1,42 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import RockButton from './RockButton';
 import PaperButton from './PaperButton';
 import ScissorButton from './ScissorButton';
 
 const RPSGame = ({ navigation }) => {
-  const [playerTurn, setPlayerTurn] = useState(0);
+  const [playerTurn, setPlayerTurn] = useState('one');
+  const [playerOnePick, setPlayerOnePick] = useState('');
+  const [playerTwoPick, setPlayerTwoPick] = useState('');
 
-  const handlePick = () => ;
+  const handlePick = pick => {
+    if (playerTurn == 'one') {
+      setPlayerOnePick(pick);
+      setPlayerTurn('two');
+    } else {
+      setPlayerTwoPick(pick);
+      if (playerOnePick == playerTwoPick) {
+        setPlayerOnePick('');
+        setPlayerTwoPick('');
+        setPlayerTurn('one');
+      } else {
+        if ((playerOnePick == 'scissors' && playerTwoPick == 'paper') || (playerOnePick == 'rock' && playerTwoPick == 'scissors') || (playerOnePick == 'paper' && playerTwoPick == 'rock')) {
+          navigation.navigate('WinnerScreen', 'one');
+        } else {
+          navigation.navigate('WinnerScreen', 'two');
+        }
+      }
+    }
+  };
 
   return (
     <View style={styles.container}>
-      <RockButton hand='Rock' handlepick={handlePick} />
-      <PaperButton hand='Paper'  handlepick={handlePick}  />
-      <ScissorButton hand='Scissor'  handlepick={handlePick}  />
+      <Text style={styles.text}>
+        {`Player ${playerTurn}, pick.`}
+      </Text>
+      <RockButton handlePick={handlePick} />
+      <PaperButton handlePick={handlePick} />
+      <ScissorButton handlePick={handlePick} />
     </View>
   );
 };
@@ -25,6 +48,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    fontSize: 30,
+  }
 });
 
 export default RPSGame;

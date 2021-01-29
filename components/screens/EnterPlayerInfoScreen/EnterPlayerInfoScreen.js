@@ -10,7 +10,7 @@ const EnterPlayerInfoScreen = ({ navigation, route}) => {
         if (player == 'one') {
             navigation.navigate('PlayerInfoScreen');
         } else if (player == 'two') {
-            navigation.navigate('WinnerScreen');
+            navigation.navigate('RPSGame');
         }
     };
 

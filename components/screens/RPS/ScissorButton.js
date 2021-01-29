@@ -1,10 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ScissorButton = ({ handlepick }) => (
+const ScissorButton = ({ handlePick }) => (
   <TouchableOpacity
       style={styles.button}
-      onPress={() => handlePicked()}
+      onPress={() => handlePick('scissor')}
   >
       <Image
           style={styles.buttonstyle}
