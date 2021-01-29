@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
 
 
 const PlayerInfoScreen = ({ navigation }) => {
-  const [playersReady, setPlayersReady] = useState(0);
-
-  const handlePick = () => navigation.navigate('EnterPlayerInfoScreen');
+  const handlePick = player => {
+    navigation.navigate('EnterPlayerInfoScreen', player);
+  }
 
   return (
     <View style={styles.container}>
-      <PlayerOne handlePick={handlePick} playersReady={playersReady} setPlayersReady={setPlayersReady} />
-      <PlayerTwo handlePick={handlePick} playersReady={playersReady} setPlayersReady={setPlayersReady} />
+      <PlayerOne handlePick={handlePick} />
+      <PlayerTwo handlePick={handlePick} />
     </View>
   );
 };

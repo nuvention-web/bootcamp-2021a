@@ -3,23 +3,39 @@ import { View, StyleSheet, Image } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const EnterPlayerInfoScreen = () => {
+const EnterPlayerInfoScreen = ({ navigation, route}) => {
+    const player = route.params;
+
+    const handlePress = () => {
+        if (player == 'one') {
+            navigation.navigate('PlayerInfoScreen');
+        } else if (player == 'two') {
+            navigation.navigate('WinnerScreen');
+        }
+    };
+
     return (
         <View style={styles.container}>
-            <TextInput style={styles.textInput}>
+            <TextInput style={(player == 'one') ? styles.textInputOne : styles.textInputTwo}>
                 Hello
             </TextInput>
-            <TextInput style={styles.textInput}>
+            <TextInput style={(player == 'one') ? styles.textInputOne : styles.textInputTwo}>
                 Fight for...
             </TextInput>
             <TouchableOpacity
                 style={styles.button}
-                // onPress={() => handlePick()}
+                onPress={() => handlePress()}
             >
+                {(player == 'one') ?
                 <Image
                     style={styles.buttonImage}
                     source={require(`../../../assets/ready.png`)}
                 />
+                :
+                <Image
+                    style={styles.buttonImage}
+                    source={require(`../../../assets/go.png`)}
+                />}
             </TouchableOpacity>
         </View>
     );
@@ -39,8 +55,18 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
     },
-    textInput: {
+    textInputOne: {
         backgroundColor: '#d8c6ff',
+        color: 'white',
+        textAlign: 'center',
+        borderRadius: 20,
+        fontSize: 30,
+        width: 300,
+        height: 100,
+        margin: 20,
+    },
+    textInputTwo: {
+        backgroundColor: '#60be86',
         color: 'white',
         textAlign: 'center',
         borderRadius: 20,

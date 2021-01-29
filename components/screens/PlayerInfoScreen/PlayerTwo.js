@@ -6,7 +6,7 @@ const PlayerTwo = ({ handlePick }) => {
     return (
         <TouchableOpacity
             style={styles.player}
-            onPress={() => handlePick()}
+            onPress={() => handlePick('two')}
         >
             <Image
                 style={styles.playerLogo}
