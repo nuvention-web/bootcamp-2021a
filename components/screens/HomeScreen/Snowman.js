@@ -2,12 +2,14 @@ import React from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 
-const Game = () => {
+const Snowman = ({ handlePick, gameName }) => {
     return (
-        <TouchableOpacity style={styles.game}>
+        <TouchableOpacity
+            style={styles.game}
+            onPress={() => handlePick(gameName)}>
             <Image
                 style={styles.gameLogo}
-                source={require('../../../assets/favicon.png')}
+                source={require(`../../../assets/snowman.png`)}
             />
         </TouchableOpacity>
     );
@@ -23,4 +25,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Game;
+export default Snowman;

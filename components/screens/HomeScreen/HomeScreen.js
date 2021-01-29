@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Game from './Game';
+import TTT from './TTT';
+import Snowman from './Snowman';
+import RPS from './RPS';
 
-const HomeScreen = () => {
+
+const HomeScreen = ({ navigation }) => {
   const [gamePicked, setGamePicked] = useState('');
+
+  const handlePick = gameName => {
+    setGamePicked(gameName);
+    navigation.navigate('PlayerInfoScreen');
+    // then navigate to next screen
+  };
 
   return (
     <View style={styles.container}>
-      <Game setGamePicked={setGamePicked} />
-      <Game setGamePicked={setGamePicked} />
-      <Game setGamePicked={setGamePicked} />
+      <TTT handlePick={handlePick} />
+      <Snowman handlePick={handlePick} />
+      <RPS handlePick={handlePick} />
     </View>
   );
 };
